@@ -1,0 +1,38 @@
+{
+  "name": "simpleback",
+  "version": "1.0.0",
+  "description": "Backend in Nodejs using sequelize",
+  "main": "index.js",
+  "scripts": {
+    "dev": "env DEBUG=Application, NODE_ENV=development nodemon src/index.js --exec \"npm run lint && babel-node\"",
+    "start": "node dist/index.js",
+    "build": "babel src -d dist",
+    "lint": "eslint src --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectDevsJSCH/BasicBackNodeSequelize.git"
+  },
+  "author": "Juan Castelblanco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProjectDevsJSCH/BasicBackNodeSequelize/issues"
+  },
+  "homepage": "https://github.com/ProjectDevsJSCH/BasicBackNodeSequelize#readme",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.8.7",
+    "debug": "^4.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.2"
+  }
+}
