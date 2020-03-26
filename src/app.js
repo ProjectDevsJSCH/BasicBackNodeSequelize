@@ -1,13 +1,16 @@
 import express, { json, urlencoded } from 'express';
 import morgan from 'morgan';
+import routes from './routes'; // El archivo index se llama por defecto
 
-const app = express();
+const server = express();
 
 // Middlewares
-app.use(morgan('dev'));
-app.use(json);
-app.use(urlencoded({ extended: true })); // para utilizar queries en la ruta
+server.use(morgan('dev'));
+server.use(json());
+server.use(urlencoded({ extended: true })); // para utilizar queries en la ruta
+server.use(express.static('public'));
 
 // Routes
+routes(server);
 
-export default app;
+export default server;
