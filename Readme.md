@@ -1,9 +1,6 @@
-## Requeridos:
+# Readme
 
-(nodemon @babel/core @babel/cli @babel/preset-env @babel/node morgan eslint)
+Backend app using nodejs with express and sequelize as ORM for postgres database
 
-## ENV Variables:
-
-
-## Notas:
-* Eslint utiliza airbnb como guia de estilo 
+#### Notes:
+* Eslint uses airbnb as style guide

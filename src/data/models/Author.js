@@ -3,11 +3,13 @@ import sequelizeContext from '../utils/dbConnection';
 
 const Author = sequelizeContext.define('authors', {
    id_author: {
+      // Añadir las validaciones del modelo
       primaryKey: true,
       type: Sequelize.INTEGER,
       autoIncrement: true,
    },
    author_name: {
+      // Añadir las validaciones del modelo
       type: Sequelize.STRING,
       allowNull: false,
    },
