@@ -5,7 +5,9 @@ import routes from './routes'; // El archivo index se llama por defecto
 const server = express();
 
 // Middlewares
-server.use(morgan('dev'));
+if (server.get('env') === 'development') {
+   server.use(morgan('dev'));
+}
 server.use(json());
 server.use(urlencoded({ extended: true })); // para utilizar queries en la ruta
 server.use(express.static('public'));

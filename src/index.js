@@ -1,11 +1,12 @@
 import startupDebbuger from 'debug';
-import app from './app';
+import app from './server/app';
 
-const debbuger = startupDebbuger('Application');
+
+const debug = startupDebbuger('Application');
 const port = process.env.PORT || 4000;
 
 async function main() {
-  await app.listen(port, () => debbuger(`Listening on port ${port} \nEnvironment: ${process.env.NODE_ENV}`));
+   await app.listen(port, () => debug(`Listening on port ${port} \nEnvironment: ${process.env.NODE_ENV}`));
 }
 
 main();
