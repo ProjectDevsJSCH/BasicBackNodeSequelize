@@ -1,12 +1,11 @@
 import TController from './T.Controller';
 import BookService from '../services/Book.service';
 import Book from '../../data/models/Book';
-import BookValidator from '../../data/schemas/BookValidator';
+import BookValidator from '../../data/schemas/Book.schema';
 
 
 // Asignación de la dependencia
 const _bookService = new BookService(Book);
-const _bookValidator = new BookValidator();
 //----------------------------
 
 
@@ -19,4 +18,4 @@ class BookController extends TController {
    }
 }
 
-export default new BookController(_bookService, _bookValidator);
+export default new BookController(_bookService, BookValidator);

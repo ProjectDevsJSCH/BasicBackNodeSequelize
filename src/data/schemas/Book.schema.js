@@ -1,7 +1,7 @@
 import Joi from '@hapi/joi';
 
 class BookValidation {
-   validateBookUpdate(book) {
+   static validateCreation(book) {
       const schema = Joi.object({
          book_name: Joi.string().required().max(50),
          fk_id_author: Joi.number().required(),
@@ -9,7 +9,7 @@ class BookValidation {
       return schema.validate(book);
    }
 
-   validateBookCreation(book) {
+   static validateUpdate(book) {
       const schema = Joi.object({
          book_name: Joi.string().max(50),
          fk_id_author: Joi.number(),

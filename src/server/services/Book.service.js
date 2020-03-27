@@ -1,4 +1,4 @@
-import TService from './TService';
+import TService from './T.service';
 
 class BookService extends TService {
    constructor(Model) {

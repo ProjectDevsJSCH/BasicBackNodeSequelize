@@ -2,7 +2,7 @@ import Sequielize from 'sequelize';
 import config from 'config';
 import startupDebbuger from 'debug';
 
-const debug = startupDebbuger('Application');
+const debug = startupDebbuger('app:');
 
 let loggingEnv;
 
@@ -29,16 +29,18 @@ const sequelizeContext = new Sequielize(
 );
 
 
-if (process.env.NODE_ENV === 'production') {
-   sequelizeContext
-      .authenticate()
-      .then(() => {
-         debug('Connection has been established successfully.');
-      })
-      .catch((err) => {
-         debug('Unable to connect to the database:', err);
-      });
+sequelizeContext
+   .authenticate()
+   .then(() => {
+      debug('Connection has been established successfully.');
+      debug(config.get('password'));
+   })
+   .catch((err) => {
+      debug('Unable to connect to the database:', err);
+   });
 
+
+if (process.env.NODE_ENV === 'production') {
    sequelizeContext.sync().then(() => {
       debug('Sync made');
    }).catch((error) => {

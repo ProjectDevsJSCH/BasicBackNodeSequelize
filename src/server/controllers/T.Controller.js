@@ -1,4 +1,7 @@
 import '@babel/polyfill';
+import startupDebbuger from 'debug';
+
+const debugError = startupDebbuger('app:error');
 
 class TController {
    constructor(service, validator) {
@@ -6,30 +9,33 @@ class TController {
       this._validator = validator;
       this.validate = this.validate.bind(this);
       this.getAll = this.getAll.bind(this);
-      // this.getById = this.getById.bind(this);
-      // this.insert = this.insert.bind(this);
-      // this.delete = this.delete.bind(this);
+      this.insert = this.insert.bind(this);
    }
 
-   validate(req, res, validationFunction) {
-      const { error } = validationFunction(req.body);
-      return error ? res.status(400).send(error.details[0].message) : req.body;
+   validate(request, validationFunction) {
+      const { error } = validationFunction(request.body);
+      if (error) {
+         throw error;
+      } else {
+         return request.body;
+      }
    }
 
    async getAll(req, res) {
-      return res.status(200).send(await this._service.getAll());
+      const response = await this._service.getAll();
+      return res.status(response.statusCode).send(response);
    }
 
-   // async getById(req, res) {
-   // }
-
-   // async insert(req, res) {
-
-   // }
-
-   // async delete(req, res) {
-
-   // }
+   async insert(req, res) {
+      try {
+         const validBody = this.validate(req, this._validator.validateCreation);
+         const response = await this._service.insert(validBody);
+         return res.status(response.statusCode).send(response);
+      } catch (error) {
+         debugError(error);
+         return res.status(400).send(error.details[0].message);
+      }
+   }
 }
 
 export default TController;

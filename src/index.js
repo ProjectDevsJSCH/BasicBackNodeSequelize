@@ -1,8 +1,7 @@
 import startupDebbuger from 'debug';
 import app from './server/app';
 
-
-const debug = startupDebbuger('Application');
+const debug = startupDebbuger('app:');
 const port = process.env.PORT || 4000;
 
 async function main() {

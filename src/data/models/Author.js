@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import sequelizeContext from '../utils/dbConnection';
+import sequelizeContext from '../utils/DbConnection';
 
 const Author = sequelizeContext.define('authors', {
    id_author: {

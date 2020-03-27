@@ -4,7 +4,7 @@
   "description": "Backend in Nodejs using sequelize",
   "main": "index.js",
   "scripts": {
-    "dev": "env DEBUG=Application, NODE_ENV=development nodemon src/index.js --exec \"npm run lint && babel-node\"",
+    "dev": "env DEBUG=app:*, NODE_ENV=development nodemon src/index.js --exec \"npm run lint && babel-node\"",
     "start": "node dist/index.js",
     "build": "babel src --out-dir dist",
     "lint": "eslint src --fix",

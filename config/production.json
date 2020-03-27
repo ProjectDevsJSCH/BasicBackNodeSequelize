@@ -1,9 +1,3 @@
 {
-	"db": {
-		"host": "productionURL",
-		"port": 5432, 
-		"name": "ProductionDb",
-		"user": "ProductionUser",
-		"password": "password"
-	}
+	
 }
