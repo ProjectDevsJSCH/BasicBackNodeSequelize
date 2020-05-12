@@ -1,6 +1,6 @@
 
-import bookRoutes from './Book.routes';
-import authorRoutes from './Author.routes';
+import bookRoutes from './book.routes';
+import authorRoutes from './author.routes';
 
 function addServer(server) {
    // Configuracion de las apis
