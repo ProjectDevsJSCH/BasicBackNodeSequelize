@@ -7,38 +7,12 @@ class TService {
       // this.delete = this.deletebind(this);
    }
 
-   async getAll() {
-      try {
-         const elements = await this._model.findAll();
-         return {
-            success: true,
-            statusCode: 200,
-            data: elements,
-         };
-      } catch (error) {
-         return {
-            success: false,
-            statusCode: 500,
-            error,
-         };
-      }
+   getAll() {
+      return this._model.findAll();
    }
 
-   async insert(element) {
-      try {
-         const result = await this._model.create(element);
-         return {
-            success: true,
-            statusCode: 200,
-            data: result,
-         };
-      } catch (error) {
-         return {
-            success: false,
-            statusCode: 500,
-            error,
-         };
-      }
+   insert(element, t = null) {
+      return this._model.create(element, {transaction: t});
    }
 }
 
